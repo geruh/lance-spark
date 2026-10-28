@@ -30,8 +30,12 @@ first_value = "0"
 # Root pom.xml - project version
 [[tool.bumpversion.files]]
 filename = "pom.xml"
-search = "<version>{current_version}</version>"
-replace = "<version>{new_version}</version>"
+search = """
+    <artifactId>lance-spark-root</artifactId>
+    <version>{current_version}</version>"""
+replace = """
+    <artifactId>lance-spark-root</artifactId>
+    <version>{new_version}</version>"""
 
 # Root pom.xml - lance-spark.version property
 [[tool.bumpversion.files]]
