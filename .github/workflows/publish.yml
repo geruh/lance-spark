@@ -69,7 +69,7 @@ jobs:
           chmod 700 "$gpg_home"
           printf '%s\n' "use-agent" "pinentry-mode loopback" >> "$gpg_home/gpg.conf"
           export GPG_TTY=$(tty)
-          mvn --batch-mode -Dmaven.test.skip=true -DpushChanges=false -Dgpg.passphrase=${{ secrets.GPG_PASSPHRASE }} deploy -P deploy-to-ossrh
+          mvn --batch-mode -DskipTests -DpushChanges=false -Dgpg.passphrase=${{ secrets.GPG_PASSPHRASE }} deploy -P deploy-to-ossrh
         env:
           SONATYPE_USER: ${{ secrets.SONATYPE_USER }}
           SONATYPE_TOKEN: ${{ secrets.SONATYPE_TOKEN }}
